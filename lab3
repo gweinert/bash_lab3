@@ -1,0 +1,58 @@
+#1111111111111
+
+#a
+cat ~/small ~/nofile
+
+#b
+cat ~/small ~/nofile 1> ~/good 2> ~/error
+
+#c
+cat ~/good ~/error
+
+#d
+cat ~/small ~/nofile 2> /dev/null
+
+#1111111111111
+
+
+#222222222222
+
+#a 
+tr abcdefghijklmnopqrstuvwxzy 123456789abcdefghijklmnopq < ~/small
+
+#b
+tr abcdefghijklmnopqrstuvwxzy 123456789abcdefghijklmnopq < ~/small > ~/encoded
+
+#c
+cat ~/encoded
+
+#d
+tr 123456789abcdefghijklmnopq abcdefghijklmnopqrstuvwxzy < ~/encoded
+
+#e
+tr 123456789abcdefghijklmnopq abcdefghijklmnopqrstuvwxzy < ~/encoded > ~/decoded
+
+#f
+cat ~/small ~/decoded
+echo CAN BE DIFFERENT
+
+#g
+diff ~/small ~/decoded
+
+
+#22222222222222222
+
+
+#3333333333333333
+cat ~/small | tr abc 123 | tee ~/allTeedOff | od | wc
+cat ~/allTeedOff
+#3333333333333333
+
+#444444444444444
+read -p "Enter a list of things: " myList;
+read -p "Enter a delay in secs: " delay;
+rm -f ~/myData
+
+#444444444444444
+
+
