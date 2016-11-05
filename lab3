@@ -52,7 +52,16 @@ cat ~/allTeedOff
 read -p "Enter a list of things: " myList;
 read -p "Enter a delay in secs: " delay;
 rm -f ~/myData
+touch ~/myData
 
+for i in $myList; do
+	echo $i
+	date +"%T" >> ~/myData
+	$i >> ~/myData
+	sleep $delay
+done
+echo "-------------"
 #444444444444444
 
-
+#5
+ls *.txt | xargs -I {} cp {} ~/saveDir/{}.save
